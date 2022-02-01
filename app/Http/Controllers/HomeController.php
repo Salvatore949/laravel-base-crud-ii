@@ -22,7 +22,16 @@ class HomeController extends Controller
      return view('show', compact('comic'));
  }
 
- public function create(){
-   return view ('create');
- }
+  public function create(){
+    return view ('create');
+  }
+
+  public function store( Request $request){
+    dd($request -> all());
+  }
+
+
+
+ 
+
 }
