@@ -27,11 +27,13 @@ class HomeController extends Controller
   }
 
   public function store( Request $request){
-    dd($request -> all());
+   
+    $data = $request -> validate([
+      'title' => 'required|string|max:60',
+      'author' =>'required|string|max:255',
+      'release_date' =>'required',
+      'page' =>'required|numeric|between:0,300'
+    ]);
+    dd($data);
   }
-
-
-
- 
-
 }
