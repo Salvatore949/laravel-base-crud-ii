@@ -19,7 +19,7 @@ class CreateComicsTable extends Migration
             $table -> string ('title', 60);
             $table->string('author',60);
             $table->date('release_date');
-            $table-> integer('pages');
+            $table-> integer('pages') ->default(100);
 
             $table->timestamps();
         });

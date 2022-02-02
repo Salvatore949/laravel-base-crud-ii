@@ -31,9 +31,14 @@ class HomeController extends Controller
     $data = $request -> validate([
       'title' => 'required|string|max:60',
       'author' =>'required|string|max:255',
-      'release_date' =>'required',
-      'page' =>'required|numeric|between:0,300'
+      'release_date' =>'required|date',
+      'page' =>'numeric|between:0,300',
     ]);
-    dd($data);
+
+  $comic = Comic::create($data);
+  return redirect() -> route('show', $comic -> id);
+
   }
+
+
 }
